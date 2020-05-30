@@ -41,11 +41,8 @@ def gen_verts(seg, semi_dia, radius, z_offset=0):
     verts = []  # stores all the vertices [(x,y,z), (x,y,z) ...]
     radius_sq = radius*radius  # the squared radius
 
-    effective_factor = 1  # how much the lens is effective (1=all, 0=flat)
-    if semi_dia > 0 and radius > 0:
-        effective_factor = radius / semi_dia
-    if effective_factor > 1:  # prevent it to be greater than 1
-        effective_factor = 1
+    if radius!=0 and semi_dia > abs(radius):
+        semi_dia = abs(radius)
 
     # generates all the vertices i:x-axis j:y-axis
     for i in range(-seg, seg+1):
@@ -186,7 +183,7 @@ class MESH_OT_lens_mesh_add(bpy.types.Operator):
                                        default=0)
 
     segments: bpy.props.IntProperty(name="Segments",
-                                    description="Specify the thickness of the surface",
+                                    description="Specify the segments of the surface",
                                     default=5, min=1)
 
     def execute(self, context):
