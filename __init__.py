@@ -20,8 +20,7 @@
 # -- Hans Chiu
 
 import bpy
-from bpy.props import FloatProperty
-from . lens_creator import MESH_OT_lens_mesh_add # all the fancy stuff
+from . lens_creator import MESH_OT_lens_mesh_add  # all the fancy stuff
 
 bl_info = {
     "name": "Lens Creator",
@@ -53,10 +52,9 @@ register_class, unregister_class = bpy.utils.register_classes_factory(classes)
 
 def register():
     register_class()
-    bpy.types.VIEW3D_MT_mesh_add.append(menu_func) # put the button into menu
+    bpy.types.VIEW3D_MT_mesh_add.append(menu_func)  # put the button into menu
 
 
 def unregister():
-    bpy.types.VIEW3D_MT_mesh_add.remove(menu_func) # take away the button from menu
+    bpy.types.VIEW3D_MT_mesh_add.remove(menu_func)  # remove the button
     unregister_class()
-
