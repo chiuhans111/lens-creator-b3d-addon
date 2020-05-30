@@ -6,7 +6,7 @@ View3D > Add > Mesh > Lens
 a simple blender add-on that generates simple lens model
 Blender version: 2.8
 
-Lens Creator
+
 author: Hans Chiu
 
 ---
